@@ -21,7 +21,7 @@ const Modal = ({ title, isOpen, setIsOpen, children }) => {
               <p className='close-modal' onClick={toggleModal}> x </p>
               <div className='modal-footer'>
               </div>
-              <button variant="outlined" className='sort-button' onClick={toggleModal} >Sort</button>
+              {/* <button variant="outlined" className='sort-button' onClick={toggleModal} >Sort</button> */}
             </div>
           </div>
         </StyledModal>
@@ -77,11 +77,11 @@ body.active-modal {
   cursor: pointer;
 }
 .title-modal{
+  text-align: center;
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
   line-height: 32px;
-  text-transform: capitalize;
   color: #000000;
   margin: 5px;
 }

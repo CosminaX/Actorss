@@ -20,7 +20,6 @@ const Footer = () => {
 export default Footer
 
 const StyledFooter = styled.div`
-position: absolute;
 bottom: 0;
 width: 100%;
 .date-time{

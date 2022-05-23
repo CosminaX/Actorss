@@ -6,6 +6,7 @@ import actor2 from "./Photos/actor2.png"
 import actor3 from "./Photos/actor3.png"
 import actor4 from "./Photos/actor4.png"
 import styled from 'styled-components';
+import Radio from './Radio';
 const Actor = (props) => {
 
   // const listItem = Object.keys(props);
@@ -21,6 +22,23 @@ const Actor = (props) => {
     setIsOpen(!isOpen)
     setTitleModal(title)
   }
+  const [sortData, setSortData] = useState([])
+  const handleAsc = () => {
+    const sortedData = [...actors].sort((a, b) => {
+      return a.name > b.name ? 1 : -1
+    })
+    setSortData(sortedData)
+  }
+  const handleDesc = () => {
+    const sortedData = [...actors].sort((a, b) => {
+      return a.name < b.name ? 1 : -1
+    })
+    setSortData(sortedData)
+  }
+  const sort = () => {
+    setActors(sortData)
+  }
+
   return (
     <StyledActor className="App">
       {/* Display the object’s information in jsx using <ul> and <li> tags.
@@ -38,7 +56,7 @@ const Actor = (props) => {
           </li>
         ))}
       </ul> */}
-      <button className='sort-btn' onClick={() => handleOpenModal("Sort")} >Sort</button>
+      <button className='sort-btn' onClick={() => handleOpenModal("Select type of sort")} >Sort</button>
       <div className='cards'>
         {actors.map((actor) => (
           <div className='card'>
@@ -53,7 +71,13 @@ const Actor = (props) => {
         ))}
       </div>
 
-      <Modal {...{ isOpen, setIsOpen, title: titleModal }}></Modal>
+      <Modal {...{ isOpen, setIsOpen, title: titleModal }}>
+        <Radio
+          handleAsc={handleAsc}
+          handleDesc={handleDesc}
+          sort={sort}
+          handleOpenModal={handleOpenModal} />
+      </Modal>
     </StyledActor>
   );
 }
