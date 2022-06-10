@@ -1,0 +1,73 @@
+{
+  "actors": [
+    {
+      "name": "Leondardo Catalin",
+      "occupation": "Actor & Writer",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 1
+    },
+    {
+      "photo": "img",
+      "name": "Angelia Jolie",
+      "occupation": "Actress & Producer",
+      "score": "80",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 2
+    },
+    {
+      "photo": "img",
+      "name": "Jennifer Aniston",
+      "occupation": "Actor & Writer",
+      "score": "100",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 3
+    },
+    {
+      "photo": "img",
+      "name": "Dwayne Johnson",
+      "occupation": "Actor & Producer",
+      "score": "100",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 4
+    },
+    {
+      "name": "Catalin",
+      "occupation": "it",
+      "hobbies": "running",
+      "description": "asdasd ",
+      "id": 5
+    },
+    {
+      "name": "Building TEST1",
+      "occupation": "actor",
+      "hobbies": "wssfx",
+      "description": "fsddddddddddddddddf",
+      "id": 6
+    },
+    {
+      "name": "Leondardo Cosmina",
+      "occupation": "Actor & Writer",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 7
+    },
+    {
+      "name": "Leondardo Disad",
+      "occupation": "Actor & Writer",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 8
+    },
+    {
+      "name": "Catalin1333",
+      "occupation": "123",
+      "hobbies": "running",
+      "description": "asdasd ",
+      "id": 9
+    }
+  ]
+}

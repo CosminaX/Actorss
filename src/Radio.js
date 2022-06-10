@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Radio = ({
   handleAsc,
   handleDesc,
-  sort,
+  sorting,
   handleOpenModal
 }) => {
   const radioChange = (e) => {
@@ -16,12 +16,18 @@ const Radio = ({
   }
   return (
     <StyledRadio>
-      <input type="radio" id="Ascending" name="sort" value="Ascending" onChange={(e) => radioChange(e)} />
-      <label for="Ascending">Ascending</label><br />
-      <input type="radio" id="Descending" name="sort" value="Descending" onChange={(e) => radioChange(e)} />
-      <label for="Descending">Descending</label><br />
       <div className='sorting'>
-        <button className='sort' onClick={() => { sort(); handleOpenModal() }}>Sort</button>
+        <div className='asc'>
+          <input type="radio" id="Ascending" name="sort" value="Ascending" onChange={(e) => radioChange(e)} />
+          <label >Ascending</label><br />
+        </div>
+        <div className='desc'>
+          <input type="radio" id="Descending" name="sort" value="Descending" onChange={(e) => radioChange(e)} />
+          <label >Descending</label><br />
+        </div>
+      </div>
+      <div className='sortingBtn'>
+        <button className='sort' onClick={() => { sorting(); handleOpenModal("") }}>Sort</button>
       </div>
     </StyledRadio >
   )
@@ -29,8 +35,40 @@ const Radio = ({
 
 export default Radio
 const StyledRadio = styled.div`
+.sortingBtn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .sort{
+  left: 175px;
+  bottom: 10px;
+  width:66px;
+  height:36px;
+  border-radius: 5px;
+  border-color: #6308F7;
+  color: #6308F7;
+  margin: 10px;
+}
+}
 .sorting{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+label{
+  color:#6308F7;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.75px;
+}
+.asc,
+.desc{
   display: flex;
   justify-content: center;
 }
