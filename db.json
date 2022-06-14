@@ -2,6 +2,26 @@
   "actors": [
     {
       "photo": "img",
+      "name": "Angelia Jolie",
+      "occupation": "Actress & Producer",
+      "score": "80",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 2,
+      "isSelected": false
+    },
+    {
+      "photo": "img",
+      "name": "Jennifer Aniston",
+      "occupation": "Actor & Writer",
+      "score": "100",
+      "hobbies": "Traveling,Reading",
+      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "id": 3,
+      "isSelected": false
+    },
+    {
+      "photo": "img",
       "name": "Dwayne Johnson",
       "occupation": "Actor & Producer",
       "score": "100",

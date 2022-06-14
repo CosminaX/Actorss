@@ -10,6 +10,7 @@ import errorSign from "./Photos/error-alert.svg";
 import serviceApi from "./Services/index";
 import editimg from "./Photos/editimg.svg";
 import deleteicon from "./Photos/Delete.svg";
+import sad from "./Photos/sad.svg";
 
 const Actor = (props) => {
   const services = new serviceApi();
@@ -135,6 +136,7 @@ const Actor = (props) => {
         );
         setActors(updatedActors);
         setItemsSelected([]);
+        setShow((s) => !s);
       })
       .catch((err) => console.log(err));
   };
@@ -161,7 +163,10 @@ const Actor = (props) => {
           </li>
         ))}
       </ul> */}
-      <div className="sort-select">
+      <div
+        className="sort-select"
+        style={{ display: actors.length === 0 ? "none" : "flex" }}
+      >
         <div
           className="show-when-delete"
           style={{ display: !show ? "none" : "flex" }}
@@ -213,42 +218,51 @@ const Actor = (props) => {
         </button>
       </div>
       <div className="cards">
-        {actors.map((actor, index) => (
-          <div key={index} className="card">
-            {/* {actor.photo} */}
-            {/* <div className='selected' style={{ display: show ? "block" : "none" }}> */}
-            <input
-              type="checkbox"
-              className="checkbox-card"
-              style={{ display: show ? "block" : "none" }}
-              onChange={() => isChecked(actor)}
-              checked={actor.isSelected}
-            />
-            {/* </div> */}
-            <img src={actorphoto} alt="actor" />
-            <div className="container">
-              <h4>{actor.name}</h4>
-              <p>
-                {actor.occupation}
-                {actor.score}
-              </p>
-              <p>{actor.hobbies}</p>
-              <p>{actor.description}</p>
-            </div>
-            <div className="edit">
-              <button
-                className="edit-btn"
-                onClick={() => {
-                  handleOpenModal("Edit actor");
-                  setSelectedData(actor);
-                  setModalTypeOpened("edit");
-                }}
-              >
-                Edit <img src={editimg} alt="editimg" className="edit-img" />
-              </button>
+        {actors.length === 0 ? (
+          <div className="notFound">
+            <div className="empty">
+              <img src={sad} className="sad-img" alt="sad-img" />
+              <h1>There are no actors here. Consider adding one.</h1>
             </div>
           </div>
-        ))}
+        ) : (
+          actors.map((actor, index) => (
+            <div key={index} className="card">
+              {/* {actor.photo} */}
+              {/* <div className='selected' style={{ display: show ? "block" : "none" }}> */}
+              <input
+                type="checkbox"
+                className="checkbox-card"
+                style={{ display: show ? "block" : "none" }}
+                onChange={() => isChecked(actor)}
+                checked={actor.isSelected}
+              />
+              {/* </div> */}
+              <img src={actorphoto} alt="actor" />
+              <div className="container">
+                <h4>{actor.name}</h4>
+                <p>
+                  {actor.occupation}
+                  {actor.score}
+                </p>
+                <p>{actor.hobbies}</p>
+                <p>{actor.description}</p>
+              </div>
+              <div className="edit">
+                <button
+                  className="edit-btn"
+                  onClick={() => {
+                    handleOpenModal("Edit actor");
+                    setSelectedData(actor);
+                    setModalTypeOpened("edit");
+                  }}
+                >
+                  Edit <img src={editimg} alt="editimg" className="edit-img" />
+                </button>
+              </div>
+            </div>
+          ))
+        )}
       </div>
       <div className="add">
         <button
@@ -489,5 +503,24 @@ const StyledActor = styled.div`
   .disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+  .notFound {
+    width: 100%;
+    text-align: -webkit-center;
+    .empty {
+      width: 40%;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+        text-align: center;
+        width: 90%;
+        align-self: center;
+      }
+      .sad-img {
+        height: 150px;
+      }
+    }
   }
 `;
