@@ -1,73 +1,54 @@
 {
   "actors": [
     {
-      "name": "Leondardo Catalin",
-      "occupation": "Actor & Writer",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 1
-    },
-    {
-      "photo": "img",
-      "name": "Angelia Jolie",
-      "occupation": "Actress & Producer",
-      "score": "80",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 2
-    },
-    {
-      "photo": "img",
-      "name": "Jennifer Aniston",
-      "occupation": "Actor & Writer",
-      "score": "100",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 3
-    },
-    {
       "photo": "img",
       "name": "Dwayne Johnson",
       "occupation": "Actor & Producer",
       "score": "100",
       "hobbies": "Traveling,Reading",
       "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 4
+      "id": 4,
+      "isSelected": false
     },
     {
       "name": "Catalin",
       "occupation": "it",
       "hobbies": "running",
       "description": "asdasd ",
-      "id": 5
+      "id": 5,
+      "isSelected": false
     },
     {
       "name": "Building TEST1",
       "occupation": "actor",
       "hobbies": "wssfx",
       "description": "fsddddddddddddddddf",
-      "id": 6
+      "id": 6,
+      "isSelected": false
     },
     {
       "name": "Leondardo Cosmina",
       "occupation": "Actor & Writer",
       "hobbies": "Traveling,Reading",
       "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 7
+      "id": 7,
+      "isSelected": false
     },
     {
-      "name": "Leondardo Disad",
+      "name": "Leondardo Dis",
       "occupation": "Actor & Writer",
       "hobbies": "Traveling,Reading",
       "description": "It's easy to believe Leonardo DiCaprio really ...”",
-      "id": 8
+      "id": 8,
+      "isSelected": false
     },
     {
       "name": "Catalin1333",
       "occupation": "123",
       "hobbies": "running",
       "description": "asdasd ",
-      "id": 9
+      "id": 9,
+      "isSelected": false
     }
   ]
 }
