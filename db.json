@@ -1,56 +1,72 @@
 {
   "actors": [
     {
-      "photo": "img",
+      "photo": "https://static.cinemagia.ro/img/resize/db/actor/00/19/00/leonardo-dicaprio-291378l-600x0-w-53f4f492.jpg",
+      "name": "Leondardo Dicaprio",
+      "occupation": "Actor & Writer",
+      "score": "47",
+      "hobbies": ["Traveling","Reading","Crossword puzzles"],
+      "description": "Leonardo DiCaprio is an American actor and film producer. Known for his work in biopics and period films, he is the recipient of numerous accolades, including an Academy Award, a British Academy Film Award, and three Golden Globe Awards. As of 2019, his films have grossed over $7.2 billion worldwide, and he has been placed eight times in annual rankings of the world's highest-paid actors. ",
+      "id": 1,
+      "isSelected": false
+    },
+    {
+      "photo": "https://ea.md/wp-content/uploads/2021/10/angelina-jolie-la-roma-4.jpg",
       "name": "Angelia Jolie",
       "occupation": "Actress & Producer",
-      "score": "80",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "score": "56",
+      "hobbies": ["Dancing","Modeling","Traveling","Blogging"],
+      "description": "Angelina Jolie is an American actress and director. She has received an Academy Award, Screen Actors Guild Awards, Golden Globe Awards. Jolie promotes humanitarian causes, and is noted for her work with refugees as a Special Envoy and former Goodwill Ambassador for the United Nations High Commissioner for Refugees (UNHCR).",
       "id": 2,
       "isSelected": false
     },
     {
-      "photo": "img",
+      "photo": "https://media1.popsugar-assets.com/files/thumbor/ptdgPx5tCvvD9kUsU7pQFMUkBIA/207x134:1865x1792/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/09/09/028/n/1922398/066318895d76e2ef0c31d8.46065434_/i/Jennifer-Aniston.jpg",
       "name": "Jennifer Aniston",
-      "occupation": "Actor & Writer",
-      "score": "100",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "occupation": "Actress & Director",
+      "score": "45",
+      "hobbies": ["Cooking","Badminton","Photography"],
+      "description": "Aniston was born on February 11, 1969, in the Sherman Oaks neighborhood of Los Angeles to Greek-born actor John Aniston and actress Nancy Dow. One of her maternal great-grandfathers, Louis Grieco, was from Italy. Her mother's other ancestry includes English, Irish, Scottish, and a small amount of Greek.",
       "id": 3,
       "isSelected": false
     },
     {
-      "photo": "img",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Dwayne_Johnson_2014%28Cropped%29.jpg/640px-Dwayne_Johnson_2014%28Cropped%29.jpg",
       "name": "Dwayne Johnson",
       "occupation": "Actor & Producer",
-      "score": "100",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "hobbies": ["Music","Wrestling","Martial Arts"],
+      "score": "32",
+      "description": "Dwayne Douglas Johnson , also known by his ring name The Rock, is an American actor, businessman, and former professional wrestler. Widely regarded as one of the greatest professional wrestlers of all time, he wrestled for WWE for eight years prior to pursuing an acting career. His films have grossed over $3.5 billion in North America and over $10.5 billion worldwide, making him one of the world's highest-grossing and highest-paid actors.",
       "id": 4,
       "isSelected": false
     },
     {
-      "name": "Catalin",
-      "occupation": "it",
-      "hobbies": "running",
-      "description": "asdasd ",
+      "photo": "https://static.monden.ro/wp-content/uploads/2022/05/Morgan-Freeman.jpg",
+      "name": "Morgan Freeman",
+      "occupation": "Actor & Producer",
+      "hobbies": ["Dominoes","Mini Golf","Table tennis"],
+      "score": "10",
+      "description": "Morgan Freeman is an American actor, director, and narrator. Noted for his distinctive deep voice, Freeman is known for his various roles in a wide variety of film genres. Throughout his career spanning over five decades, he has received multiple accolades, including an Academy Award, a Screen Actors Guild Award, and a Golden Globe Award.",
       "id": 5,
       "isSelected": false
     },
-    {
-      "name": "Building TEST1",
-      "occupation": "actor",
-      "hobbies": "wssfx",
-      "description": "fsddddddddddddddddf",
+    { 
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Brad_Pitt_2019_by_Glenn_Francis.jpg",
+      "name": "Brad Pitt",
+      "occupation": "Actor & Producer",
+      "hobbies": ["Dominoes","Mini Golf","Table tennis"],
+      "score": "82",
+      "description": "William Bradley Pitt is an American actor and film producer. He is the recipient of various accolades, including an Academy Award, a British Academy Film Award, and two Golden Globe Awards for his acting, in addition to a second Academy Award, a second British Academy Film Award, a third Golden Globe Award, and a Primetime Emmy Award as a producer under his production company, Plan B Entertainment.",
       "id": 6,
       "isSelected": false
     },
     {
-      "name": "Leondardo Cosmina",
-      "occupation": "Actor & Writer",
-      "hobbies": "Traveling,Reading",
-      "description": "It's easy to believe Leonardo DiCaprio really ...”",
+      "photo": "https://lyricstranslate.com/files/styles/artist/public/Screen-Shot-2020-09-01-at-06.23.15.png",
+      "name": "Zendaya",
+      "occupation": "Actress & Director",
+      "hobbies": ["Make Up","Nail Art","Scuba Diving"],
+      "score": "65",
+      "description": "Zendaya is an American actress and singer who has received various accolades throughout her career, including a Primetime Emmy Award, a Satellite Award and a Saturn Award, as well as earning a nomination for a Critics' Choice Movie Award and a Critics' Choice Television Award. ",
       "id": 7,
       "isSelected": false
     }

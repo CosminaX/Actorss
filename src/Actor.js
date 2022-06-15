@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Modal from "./Modal";
-import actorphoto from "./Photos/actor.png";
 import styled from "styled-components";
 import Radio from "./Radio";
 import AddActors from "./AddActors";
@@ -14,6 +13,8 @@ import sad from "./Photos/sad.svg";
 import DeleteModal from "./DeleteModal";
 import added from "./Photos/added.svg";
 import addedMax from "./Photos/addedMax.svg";
+import ReadMoreReadLess from "./ReadMoreReadLess";
+import like from "./Photos/Like.svg";
 
 const Actor = (props) => {
   const services = new serviceApi();
@@ -80,7 +81,9 @@ const Actor = (props) => {
   };
 
   const sorting = () => {
-    setActors(sortData);
+    if (sortData.length > 0) {
+      setActors(sortData);
+    }
   };
 
   const togglePopup = () => {
@@ -259,7 +262,6 @@ const Actor = (props) => {
           actors.map((actor, index) => (
             <div key={index} className="card">
               {/* {actor.photo} */}
-              {/* <div className='selected' style={{ display: show ? "block" : "none" }}> */}
               <input
                 type="checkbox"
                 className="checkbox-card"
@@ -267,16 +269,22 @@ const Actor = (props) => {
                 onChange={() => isChecked(actor)}
                 checked={actor.isSelected}
               />
-              {/* </div> */}
-              <img src={actorphoto} alt="actor" />
+              <img src={actor.photo} alt="card-img" className="card-image" />
               <div className="container">
-                <h4>{actor.name}</h4>
-                <p>
-                  {actor.occupation}
-                  {actor.score}
-                </p>
-                <p>{actor.hobbies}</p>
-                <p>{actor.description}</p>
+                <h4 className="actor-name">{actor.name}</h4>
+                <div className="scoreAndOcupation">
+                  <p className="occupation">{actor.occupation}</p>
+                  <p className="score">
+                    {actor.score}
+                    <img src={like} className="like-img" alt="like-img" />
+                  </p>
+                </div>
+                <div className="hobbies-container">
+                  {actor.hobbies.map((hobb) => (
+                    <span className="hobbies">{hobb}</span>
+                  ))}
+                </div>
+                <ReadMoreReadLess>{actor.description}</ReadMoreReadLess>
               </div>
               <div className="edit">
                 <button
@@ -372,7 +380,7 @@ const Actor = (props) => {
 Actor.propTypes = {
   name: PropTypes.string,
   score: PropTypes.string,
-  hobbies: PropTypes.string,
+  hobbies: PropTypes.array,
   description: PropTypes.string,
 };
 
@@ -405,6 +413,8 @@ const StyledActor = styled.div`
   .cards {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
   }
   .sort-select {
     display: flex;
@@ -413,6 +423,7 @@ const StyledActor = styled.div`
     align-items: center;
     padding: 10px;
     gap: 50px;
+
     .sort-btn {
       height: 40px;
       width: 50%;
@@ -425,6 +436,7 @@ const StyledActor = styled.div`
       font-size: 17px;
       line-height: 120%;
       color: #14142b;
+      cursor: pointer;
     }
   }
 
@@ -437,6 +449,12 @@ const StyledActor = styled.div`
     background-color: #ffffff;
     border-radius: 10px;
     position: relative;
+    .card-image {
+      width: 285px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px 10px 0px 0px;
+    }
   }
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -444,7 +462,60 @@ const StyledActor = styled.div`
 
   .container {
     padding: 2px 16px;
+    .actor-name {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 130%;
+      color: #14142b;
+      margin-bottom: 5px;
+    }
+    .scoreAndOcupation {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .occupation {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        color: #4e4b66;
+        margin: 0px;
+      }
+      .score {
+        margin: 0px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 130%;
+        display: flex;
+        align-items: center;
+        color: #f4b740;
+        .like-img {
+          margin-left: 3px;
+        }
+      }
+    }
   }
+  .hobbies-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .hobbies {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: center;
+    color: #032596;
+    background-color: #e5ebfe;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 2px;
+  }
+
   .add {
     width: 100%;
     display: flex;
@@ -463,6 +534,7 @@ const StyledActor = styled.div`
       text-align: center;
       letter-spacing: 0.75px;
       color: #fcfcfc;
+      cursor: pointer;
     }
   }
 
@@ -483,6 +555,7 @@ const StyledActor = styled.div`
       font-weight: 600;
       font-size: 15px;
       line-height: 120%;
+      cursor: pointer;
       .edit-img {
         width: 14px;
       }
@@ -500,6 +573,7 @@ const StyledActor = styled.div`
     margin: 0px;
     clip-path: circle(46% at 50% 50%);
     accent-color: #6308f7;
+    cursor: pointer;
   }
   .show-when-delete {
     width: 100%;
@@ -526,6 +600,7 @@ const StyledActor = styled.div`
     margin: 0px;
     clip-path: circle(46% at 50% 50%);
     accent-color: #6308f7;
+    cursor: pointer;
   }
   .close-icon {
     cursor: pointer;
@@ -540,16 +615,13 @@ const StyledActor = styled.div`
       display: flex;
       align-items: center;
       padding: 5px;
+      cursor: pointer;
       .delete-icon {
         height: 16px;
         width: 16px;
         padding-left: 5px;
       }
     }
-  }
-  .disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
   }
   .notFound {
     width: 100%;
@@ -569,5 +641,9 @@ const StyledActor = styled.div`
         height: 150px;
       }
     }
+  }
+  .disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
   }
 `;

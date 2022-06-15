@@ -195,6 +195,7 @@ const StyledAddActors = styled.div`
       text-align: center;
       letter-spacing: 0.75px;
       color: #fcfcfc;
+      cursor: pointer;
     }
   }
   .errorName {

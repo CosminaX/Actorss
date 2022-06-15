@@ -39,8 +39,8 @@ const Radio = ({ handleAsc, handleDesc, sorting, handleOpenModal }) => {
         <button
           className="sort"
           onClick={() => {
-            sorting();
             handleOpenModal("");
+            sorting();
           }}
         >
           Sort
@@ -65,6 +65,7 @@ const StyledRadio = styled.div`
       border-color: #6308f7;
       color: #6308f7;
       margin: 10px;
+      cursor: pointer;
     }
   }
   .sorting {
