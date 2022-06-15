@@ -9,6 +9,7 @@ const Modal = ({
   togglePopup,
   setSelectedData,
   setIsAdded,
+  modalTypeOpened,
 }) => {
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -31,7 +32,7 @@ const Modal = ({
                 x{" "}
               </p>
               <div className="modal-footer"></div>
-              {title.length === 13 || title.length === 10 ? (
+              {!(modalTypeOpened === "sort") ? (
                 <p
                   className="add-close"
                   id="changed-my-mind"

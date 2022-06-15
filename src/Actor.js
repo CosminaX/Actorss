@@ -11,6 +11,9 @@ import serviceApi from "./Services/index";
 import editimg from "./Photos/editimg.svg";
 import deleteicon from "./Photos/Delete.svg";
 import sad from "./Photos/sad.svg";
+import DeleteModal from "./DeleteModal";
+import added from "./Photos/added.svg";
+import addedMax from "./Photos/addedMax.svg";
 
 const Actor = (props) => {
   const services = new serviceApi();
@@ -26,6 +29,7 @@ const Actor = (props) => {
   const [isSelectedAll, setIsSelectedAll] = useState(false);
   const [itemsSelected, setItemsSelected] = useState([]);
   const [sortData, setSortData] = useState([]);
+  const [isMax, setIsMax] = useState(true);
 
   //Data from modal
   const handleDataActors = (actorsData, type) => {
@@ -137,8 +141,30 @@ const Actor = (props) => {
         setActors(updatedActors);
         setItemsSelected([]);
         setShow((s) => !s);
+        // setIsOpen(!isOpen);
       })
       .catch((err) => console.log(err));
+  };
+  const DeleteDinamic = () => {
+    if (!isSelectedAll) {
+      removeActors();
+    } else {
+      setModalTypeOpened("delete");
+      handleOpenModal(
+        "Are you sure you want to delete all the actors of the list?"
+      );
+    }
+  };
+
+  const AddingMax = () => {
+    if (actors.length === 7) {
+      setIsMax(false);
+      !show && togglePopup();
+    } else {
+      setIsMax(true);
+      !show && handleOpenModal("Add new actor");
+      !show && setModalTypeOpened("edit");
+    }
   };
 
   useEffect(() => {
@@ -176,6 +202,7 @@ const Actor = (props) => {
               onClick={() => {
                 setShow((s) => !s);
                 setItemsSelected([]);
+                setIsSelectedAll(false);
               }}
               style={{ display: !show ? "none" : "block" }}
               className="close-icon"
@@ -188,12 +215,13 @@ const Actor = (props) => {
             <input
               name="selectAll"
               type="checkbox"
+              checked={isSelectedAll}
               className="select-all"
               onClick={() => handleSelectedAll()}
             />
           </div>
           <div className="delete-btn">
-            <button onClick={() => removeActors()}>
+            <button onClick={() => DeleteDinamic()}>
               Delete
               <img src={deleteicon} className="delete-icon" alt="deleteicon" />
             </button>
@@ -211,7 +239,9 @@ const Actor = (props) => {
         </button>
         <button
           className="sort-btn"
-          onClick={() => setShow((s) => !s)}
+          onClick={() => {
+            setShow((s) => !s);
+          }}
           style={{ display: show ? "none" : "block" }}
         >
           Select
@@ -268,8 +298,7 @@ const Actor = (props) => {
         <button
           className={`add-btn ${show ? "disabled" : ""}`}
           onClick={() => {
-            !show && handleOpenModal("Add new actor");
-            !show && setModalTypeOpened("edit");
+            AddingMax();
           }}
         >
           Add new actor
@@ -283,6 +312,7 @@ const Actor = (props) => {
           togglePopup,
           setSelectedData,
           setIsAdded,
+          modalTypeOpened,
         }}
       >
         {modalTypeOpened === "sort" ? (
@@ -297,6 +327,8 @@ const Actor = (props) => {
             handleDataActors={handleDataActors}
             selectedData={selectedData}
           />
+        ) : modalTypeOpened === "delete" ? (
+          <DeleteModal removeActors={removeActors} setIsOpen={setIsOpen} />
         ) : null}
       </Modal>
       {openPopup && (
@@ -311,12 +343,21 @@ const Actor = (props) => {
                   </div>
                 </StyledPopup>
               </>
-            ) : (
+            ) : isAdded === true && isMax === true ? (
               <>
                 <StyledPopup backgroundColor={"#E5FFF2"} color={"#00994D"}>
                   <div className="PopupError">
-                    <img src={errorSign} alt="error" className="error-sign" />
+                    <img src={added} alt="error" className="error-sign" />
                     <p>Actor added successfully.</p>
+                  </div>
+                </StyledPopup>
+              </>
+            ) : (
+              <>
+                <StyledPopup backgroundColor={"#FEFEE5"} color={"#6A5300"}>
+                  <div className="PopupError">
+                    <img src={addedMax} alt="error" className="error-sign" />
+                    <p>You can add max. 7 actors.</p>
                   </div>
                 </StyledPopup>
               </>
@@ -345,6 +386,12 @@ const StyledPopup = styled.div`
     p {
       margin: 10px;
       color: ${(props) => `${props.color}`};
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 130%;
+      display: flex;
+      align-items: center;
     }
     .error-sign {
       width: 25px;
