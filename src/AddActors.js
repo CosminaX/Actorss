@@ -7,18 +7,20 @@ const AddActors = ({ handleOpenModal, handleDataActors, selectedData }) => {
   const [addFormData, setAddFormData] = useState({
     name: selectedData.name || "",
     occupation: selectedData.occupation || "",
-    hobbies: selectedData.hobbies || "",
+    hobbies: selectedData.hobbies || [],
     description: selectedData.description || "",
   });
 
   const handleAddFormChange = (event) => {
     const { name, value } = event.target;
+    const newFormData = { ...addFormData };
+    const fieldName = name || event.target.getAttribute("name");
+
     if (event.target.name === "description") {
       setCount(event.target.value.length);
     }
-    const fieldName = name || event.target.getAttribute("name");
-    const newFormData = { ...addFormData };
     newFormData[fieldName] = value;
+    console.log("newFormData>>>", newFormData);
     setAddFormData(newFormData);
   };
   const validate = (values) => {
@@ -39,9 +41,13 @@ const AddActors = ({ handleOpenModal, handleDataActors, selectedData }) => {
     return errors;
   };
   const handleSubmit = (type) => {
+    const copyOfFormData = JSON.parse(JSON.stringify(addFormData));
+    const copyOfHobbies = copyOfFormData.hobbies.split(",");
+    copyOfFormData.hobbies = copyOfHobbies;
+    setAddFormData(copyOfFormData);
     const haveErrors = validate(addFormData);
     if (Object.keys(haveErrors).length === 0) {
-      handleDataActors(addFormData, type);
+      handleDataActors(copyOfFormData, type);
     }
   };
   return (
@@ -81,7 +87,7 @@ const AddActors = ({ handleOpenModal, handleDataActors, selectedData }) => {
           className={`inputMdl ${isRequired.hobbies && "red"}`}
           name="hobbies"
           onChange={handleAddFormChange}
-          value={addFormData.hobbies}
+          value={addFormData.hobbies.toString()}
         />
         {isRequired && <p className="errorReq">{isRequired.hobbies}</p>}
       </label>

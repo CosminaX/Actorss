@@ -280,8 +280,10 @@ const Actor = (props) => {
                   </p>
                 </div>
                 <div className="hobbies-container">
-                  {actor.hobbies.map((hobb) => (
-                    <span className="hobbies">{hobb}</span>
+                  {actor.hobbies.map((hobb, id) => (
+                    <span className="hobbies" key={id}>
+                      {hobb}
+                    </span>
                   ))}
                 </div>
                 <ReadMoreReadLess>{actor.description}</ReadMoreReadLess>
@@ -390,7 +392,6 @@ const StyledPopup = styled.div`
     background-color: ${(props) => `${props.backgroundColor}`};
     display: flex;
     height: 100%;
-
     p {
       margin: 10px;
       color: ${(props) => `${props.color}`};
@@ -404,6 +405,10 @@ const StyledPopup = styled.div`
     .error-sign {
       width: 25px;
       margin: 10px;
+      @media (max-width: 425px) {
+        width: 15px;
+        margin: 5px;
+      }
     }
   }
 `;
