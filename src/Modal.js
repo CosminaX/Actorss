@@ -88,7 +88,7 @@ const StyledModal = styled.div`
     padding: 14px 28px;
     border-radius: 3px;
     height: auto;
-    width: 600px;
+    width: 60%;
   }
 
   .close-modal {

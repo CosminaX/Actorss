@@ -46,30 +46,34 @@ const AddActors = ({ handleOpenModal, handleDataActors, selectedData }) => {
   };
   return (
     <StyledAddActors inputColor={""}>
-      <div className="n_o">
+      {/* <div className="n_o">
         <div className="name">Name</div>
         <div className="occupation">Occupation besides acting</div>
+      </div> */}
+      <div className="n_o">
+        <label>
+          Name
+          <input
+            type="text"
+            className={`inputMdl ${isRequired.name && "red"}`}
+            name="name"
+            onChange={handleAddFormChange}
+            value={addFormData.name}
+          />
+          {isRequired && <p className="errorReq">{isRequired.name}</p>}
+        </label>
+        <label>
+          Ocuppation
+          <input
+            type="text"
+            className={`inputMdl ${isRequired.occupation && "red"}`}
+            name="occupation"
+            onChange={handleAddFormChange}
+            value={addFormData.occupation}
+          />
+          {isRequired && <p className="errorReq">{isRequired.occupation}</p>}
+        </label>
       </div>
-      <label className="n_oInputs">
-        <input
-          type="text"
-          className={`inputMdl ${isRequired.name && "red"}`}
-          name="name"
-          onChange={handleAddFormChange}
-          value={addFormData.name}
-        />
-        {isRequired && <p className="errorName">{isRequired.name}</p>}
-        <input
-          type="text"
-          className={`inputMdl ${isRequired.occupation && "red"}`}
-          name="occupation"
-          onChange={handleAddFormChange}
-          value={addFormData.occupation}
-        />
-        {isRequired && (
-          <p className="errorOccupation">{isRequired.occupation}</p>
-        )}
-      </label>
       <label className="mdlLabel">
         Hobbies
         <input
@@ -126,24 +130,21 @@ const StyledAddActors = styled.div`
   .n_o {
     display: flex;
     justify-content: space-between;
-    width: 75%;
-    .name {
-      display: flex;
+    width: 99%;
+    label {
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
       line-height: 120%;
       align-items: center;
       color: #4e4b66;
+      width: 99%;
+      padding-right: 10px;
     }
-    .occupation {
+    @media (max-width: 400px) {
+      width: 100%;
       display: flex;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 120%;
-      align-items: center;
-      color: #4e4b66;
+      flex-direction: column;
     }
   }
   .n_oInputs {
@@ -196,25 +197,14 @@ const StyledAddActors = styled.div`
       letter-spacing: 0.75px;
       color: #fcfcfc;
       cursor: pointer;
+      @media (max-width: 500px) {
+        width: 80%;
+      }
     }
   }
-  .errorName {
-    position: absolute;
-    left: 5%;
-    top: 28%;
-    font-size: 12px;
-    margin: 0px;
-    color: #98014c;
-  }
-  .errorOccupation {
-    position: absolute;
-    right: 5%;
-    top: 28%;
-    font-size: 12px;
-    margin: 0px;
-    color: #98014c;
-  }
+
   .errorReq {
+    font-size: 12px;
     margin: 0px;
     color: #98014c;
   }

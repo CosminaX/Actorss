@@ -409,12 +409,15 @@ const StyledPopup = styled.div`
 `;
 const StyledActor = styled.div`
   background-color: #eff0f6;
-  padding: 10px 80px;
+  @media (min-width: 1440px) {
+    padding: 10px 80px;
+  }
   .cards {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
   }
   .sort-select {
     display: flex;
@@ -426,7 +429,7 @@ const StyledActor = styled.div`
 
     .sort-btn {
       height: 40px;
-      width: 50%;
+      width: 30%;
       margin-bottom: 10px;
       background-color: #eee5fe;
       border-radius: 6px;
@@ -444,15 +447,33 @@ const StyledActor = styled.div`
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 285px;
+
     display: grid;
     margin: 10px;
     background-color: #ffffff;
     border-radius: 10px;
     position: relative;
+
+    @media (max-width: 310px) {
+      width: 85%;
+    }
+    @media (min-width: 375px) {
+      width: 47%;
+      margin: 10px 3px;
+    }
+    @media (min-width: 1024px) {
+      width: 30%;
+      margin: 1%;
+    }
+    @media (min-width: 1728px) {
+      width: 23%;
+      padding: 0px;
+      margin: 10px;
+    }
     .card-image {
-      width: 285px;
-      height: 400px;
-      object-fit: cover;
+      width: 100%;
+      height: 300px;
+      object-fit: fill;
       border-radius: 10px 10px 0px 0px;
     }
   }
@@ -535,6 +556,9 @@ const StyledActor = styled.div`
       letter-spacing: 0.75px;
       color: #fcfcfc;
       cursor: pointer;
+      @media (max-width: 320px) {
+        width: 60%;
+      }
     }
   }
 
@@ -578,6 +602,7 @@ const StyledActor = styled.div`
   .show-when-delete {
     width: 100%;
     justify-content: space-between;
+    padding: 10px;
   }
   .select-items {
     background-color: #ffffff;
@@ -585,6 +610,9 @@ const StyledActor = styled.div`
     border-radius: 5px;
     display: flex;
     align-items: center;
+    @media (max-width: 320px) {
+      font-size: 10px;
+    }
     span {
       padding: 0px 5px;
     }
@@ -626,19 +654,23 @@ const StyledActor = styled.div`
   .notFound {
     width: 100%;
     text-align: -webkit-center;
+    margin-top: 20px;
     .empty {
       width: 40%;
-      background-color: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      @media (max-width: 430px) {
+        width: 80%;
+      }
       h1 {
+        font-size: large;
         text-align: center;
         width: 90%;
         align-self: center;
       }
       .sad-img {
-        height: 150px;
+        height: 130px;
       }
     }
   }
